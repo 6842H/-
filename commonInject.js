@@ -148,16 +148,20 @@ function dragHandler(){
 }
 
 
-//心跳检测func是否存在，直到func执行完成,检查间隔interval，func的参数params
+//心跳检测func是否存在，直到func执行完成,检查时间interval，func的参数params
 //脚本注入时是异步注入，有时候会出现后注入脚本调用先注入脚本但是被调用对象不存在的情况，这种情况可能是由于后注入的脚本先注入完成
 //func是字符串（函数名）
-//用例：mustDo(openXpath,500);
-function mustDo(func,interval=500, params=null){
+//用例：mustDo(openXpath,5000);
+//避免一直在检查，在检查时间过去后停止检查
+function mustDo(func,interval=5000, params=null){
+	interval = parseInt(interval)-500;
+	if(interval<0)
+		return;
 	console.debug('check ',func);
 	if(typeof window[func] != "undefined"){
 		window[func](params);
 	}else{
-		setTimeout(function(){mustDo(func,interval,params)}, parseInt(interval));
+		setTimeout(function(){mustDo(func,interval,params)}, interval);
 	}
 } 
 
