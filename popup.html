@@ -1,0 +1,80 @@
+﻿
+<style>
+	.pp{/*一条开关说明文字+开关*/
+		width: 200px;
+		height: 25px;
+		padding-top:5px;
+		padding-bottom:3px;
+	}
+		.swith{/*开关形状*/
+			background-color: #F2F2F2;
+			width: 35%;
+			height: 90%;
+			position:relative;
+			bottom:-20%;
+			border-radius: 15px;
+			margin-left:15px;
+			align:center;
+			float:left;
+			}
+			.span{/*开关内部on off覆盖片的公共样式*/
+				height:100%;
+				width:50%;
+				color: #F6F6F6;	
+				font-size:16px;
+				text-align:center;
+				color:#F2F2F2;
+				float:left;
+				-webkit-user-select:none;
+				-moz-user-select:none;
+				-ms-user-select:none;
+				user-select:none;
+				}
+				.mon{/*on*/
+					background-color:#1E90FF;
+					border-radius:15px 0 0 15px;
+					float: left;
+					}
+				.moff{/*off*/
+					background-color:#C7C7C7;
+					border-radius:0 15px 15px 0;
+					float: right;
+					}
+		.statement{/*开关前的说明子样式*/
+			width:30%;
+			height:100%;
+			color:#8B8B83;
+			font-size:16px;
+			text-align:center;
+			margin-left:20px;
+			line-height:30px;
+			float:left;
+		}
+	.hrs{
+		width:80%;
+		align:center;
+	}
+</style>
+<div style="width:200px; height:300px; background-color:#FCFCFC;">
+	<div class='pp'>
+		<span class='statement'>插件</span>
+		<div class='swith'>
+			<span id="me" class='span mon' title='点击控制开关'>on</span>
+		</div>
+	</div>
+	<hr class='hrs'/>
+	<div class='pp'>
+		<span class='statement'>Xpath</span>
+		<div class='swith'>
+			<span id="xpath" class='span mon' title='点击控制开关'>on</span>
+		</div>
+	</div>
+	<hr class='hrs'/>
+	<div class='pp'>
+		<span class='statement'>翻译</span>
+		<div class='swith'>
+			<span id="mdict" class='span mon' title='点击控制开关'>on</span>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" charset="utf-8" src='popup.js'></script> 
