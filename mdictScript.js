@@ -32,10 +32,9 @@ function removeDictPanel(){
 }
 
 
-
 function addDictPanel(result) {
 	//样式可能受页面css影响，可以尽量定义全一些，避免继承页面的css
-	var div_style="padding:30px 20px 30px 20px;width:25%;height:auto;z-index:99;position:fixed;";
+	var div_style="padding:30px 20px 30px 20px;height:auto;z-index:99;position:fixed;min-width:25%;max-width:60%";
 	var title_style="text-align:left;font-size:16px;font-weight:bold;font-family:verdana;padding:5px 20px 5px 20px;";
 	var content_style="text-align:left;font-size:14px;font-family:courier;padding:10px 60px 10px 60px;word-wrap:break-word;word-break:break-all;overflow:hidden;";
 	//var dragbar_style="darggable:'true';font-size:16px;font-weight:bold;font-family:verdana;padding:5px 0px 5px 0px;text-align:center;background:#CDB38B;";

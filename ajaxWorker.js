@@ -21,9 +21,19 @@ function setXMLHttp(callBack){
 			try{
 				var resstr =xmlhttp.responseText;
 				var data = JSON.parse(resstr);
+				src = '';
+				tgt = '';
 				if(data.hasOwnProperty("translateResult")){
-					src = data.translateResult[0][0].src.toString();
-					tgt = data.translateResult[0][0].tgt.toString();}
+					for(paragraph in data.translateResult){
+						for(sentence in data.translateResult[paragraph]){
+							src += data.translateResult[paragraph][sentence].src.toString();
+							tgt += data.translateResult[paragraph][sentence].tgt.toString();
+						}
+						src += '<br/>';
+						tgt += '<br/>';
+					}
+						
+				}
 				res = {cmd:'transOK',result:{"原文":src, "译文":tgt}};
 				postMessage(res);
 			}catch(err){
