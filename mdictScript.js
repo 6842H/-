@@ -124,7 +124,7 @@ function mDictKeyHandler(){
 function openMDict(){
 	//只增加监听按键即可
 	if(typeof addKeyMonitor != "undefined")  {
-		addKeyMonitor("Control_L", mDictKeyHandler);
+		addKeyMonitor("Alt_L", mDictKeyHandler);
 		console.debug('dict addKeyMonitor');
 	}else{
 		console.debug(' dict addKeyMonitor undefined');
@@ -135,7 +135,7 @@ function openMDict(){
 function closeMDict(){
 	//移除监听按键
 	if(typeof removeKeyMonitor != "undefined")  {
-		removeKeyMonitor("Control_L");
+		removeKeyMonitor("Alt_L");
 		console.debug('dict removeKeyMonitor');
 	}else{
 		console.debug('dict removeKeyMonitor undefined');
