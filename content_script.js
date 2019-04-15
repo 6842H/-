@@ -56,7 +56,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 			sendResponse('done');
 		}
 	}else if(request.cmd == 'showDictPanel'){
-		window.postMessage(request);
+		window.postMessage(request, '*');
 		console.debug('ct: 收到的翻译结果==', JSON.stringify(request), typeof request.result)
 		sendResponse('ok');
 	}
