@@ -66,21 +66,22 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 
 //本文件注入完成后发送信息给background
 function initCT(){
-	
-	chrome.runtime.sendMessage({cmd: 'inited'}, function(response) {
-		//bg收到ct加载成功后，返回要求ct往页面注入的js
-		if(response.cmd == 'ok') {
-			//loadJSArr(response.path);
-			console.debug('ct: bg 已知ct完成注入')
-			/*
-			if(loadJSArr(response.path)){
-				evalArr(response.evals);
-				window.postMessage(response.evals, '*');
-			}*/
-		}else{
-			console.debug('ct: bg 未知ct完成注入')
-		}
-	});
+	if(typeof chrome.app.isInstalled!=="undefined"){
+		chrome.runtime.sendMessage({cmd: 'inited'}, function(response) {
+			//bg收到ct加载成功后，返回要求ct往页面注入的js
+			if(response.cmd == 'ok') {
+				//loadJSArr(response.path);
+				console.debug('ct: bg 已知ct完成注入')
+				/*
+				if(loadJSArr(response.path)){
+					evalArr(response.evals);
+					window.postMessage(response.evals, '*');
+				}*/
+			}else{
+				console.debug('ct: bg 未知ct完成注入')
+			}
+		});
+	}
 	
 	//从inject发来的消息
 	window.onmessage=function(event){

@@ -138,7 +138,7 @@ function addHover(){
 //移除事件监听时传入的参数要与添加事件监听时使用的参数相同
 function removeHover(){
 	hover_flag = 0;
-	/*
+	//若不移除title，下面可以注释掉
 	var i, j, L;
 	for(i in tags){
 		target = document.getElementsByTagName(tags[i]);
@@ -147,12 +147,13 @@ function removeHover(){
 			if (target[j].id && target[j].id =='xpath_panel'){
 				continue;
 			}
+			//下面两个remove事件无效？？，只要设置hover_flag就行，增加这一大段代码主要是遍历标签移除title属性
 			target[j].removeEventListener('mousemove', check_region, false);
 			target[j].removeEventListener('mouseleave', recoverColor, false);
 			target[j].removeAttribute("title");
 		}
 	}
-	*/
+	
 }
 
 

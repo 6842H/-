@@ -55,6 +55,10 @@ function sendMessageToContentScript(message, callback)
 
 //翻译
 function newTransFunc(keyword){
+	if(!keyword || keyword==''){
+		console.debug("newTransFunc: 未选取内容");
+		return;
+	}
 	worker = startWorker('ajaxWorker.js');
 	msg = {'cmd':'trans', 'keyword':keyword};
 	worker.postMessage(msg);

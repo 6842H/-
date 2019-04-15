@@ -113,8 +113,9 @@ function getSelectedText(){
 function mDictKeyHandler(){
 	//获取选中内容，发送给ct,再由ct发送给bg
 	var txt = getSelectedText();
-	console.debug('getSelectedText==', txt);
-	if(txt){
+	console.debug('getSelectedText==', txt, typeof txt);
+	//增加选取内容判断是否为空，避免无翻译需求时却按到快捷键而发生翻译请求
+	if(txt && txt.trim().length!=0){
 		window.postMessage({'cmd':'keyTrans','keyword':txt}, '*');
 	}
 }
